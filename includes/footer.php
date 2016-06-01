@@ -3,13 +3,12 @@
 		<div class="row">
 			<div class="col l6 s12">
 				<h5 class="grey-text text-darken-4">TZT</h5>
-				<p class="grey-text text-darken-3">TZT post, de groenste post dat veel kost!
+				<p class="grey-text text-darken-3">Simply send it the green way!
 			</div>
 			<div class="col l4 offset-l2 s12">
 				<h5 class="grey-text text-darken-4">Social media</h5>
 				<ul>
-					<li><a class="grey-text text-darken-3" href="#!">Facebook</a></li>
-					<li><a class="grey-text text-darken-3" href="#!">Instagram</a></li>
+					<li><a class="grey-text text-darken-3" href="https://www.facebook.com/TZTPost" target="_blank">Facebook</a></li>
 				</ul>
 				<h5 class="grey-text text-darken-4">Treinkoerier worden?</h5>
 				<ul>

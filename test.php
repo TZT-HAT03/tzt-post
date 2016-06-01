@@ -1,30 +1,38 @@
-<?php
-include "send_engine/functions.php";
-
-echo "Pietersen ";
-echo "5: ";
-echo (berekenPietersenPrijs(5));
-echo "<br>";
-
-echo "Pietersen ";
-echo "10: ";
-echo (berekenPietersenPrijs(10));
-echo "<br>";
-
-echo "Pietersen ";
-echo "24.99: ";
-echo (berekenPietersenPrijs(24.99));
-echo "<br>";
-
-echo "Pietersen ";
-echo "25: ";
-echo (berekenPietersenPrijs(25));
-echo "<br>";
-
-echo "Pietersen ";
-echo "27: ";
-echo (berekenPietersenPrijs(27));
-echo "<br>";
+<?php include "includes/head.php" ;?>
 
 
-?>
+<div class="reveal center revealing">
+	<div class="circle"></div>
+</div>
+
+
+<style type="text/css">
+	.reveal {
+		overflow: hidden;
+		height: 100vh;
+		width: 100vw;
+	}
+
+	.circle {
+		position: relative;
+		background-color: red;
+		border-radius: 50%;
+		height: 100px;
+		width: 100px;
+		top: -100;
+		animation:
+		transition: all 0.34s ease-out;
+	}
+
+	.reveal.revealing .circle {
+		top: 0;
+		transform: scale(50);
+	}
+</style>
+
+<?php include "includes/head.php" ;?>
+
+
+<script type="javascript">
+
+</script>

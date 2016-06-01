@@ -1,5 +1,7 @@
 <?php
 session_start();
+date_default_timezone_set("Europe/Amsterdam");
+setlocale(LC_TIME, 'NL_nl');
 include "includes/database.php";
 include "includes/functions.php";
 
@@ -21,7 +23,7 @@ if (isset($_POST['submit'])) {
 	$voornaam = $_POST["voornaam"];
 	$achternaam = $_POST["achternaam"];
 	$geslacht = $_POST["geslacht"];
-	$geb_datum = $_POST["geb_datum"];
+	$geb_datum = date('Y-m-d H:i:s', strtotime($_POST["geb_datum"]));
 	$straat = $_POST["straat"];
 	$huisnummer = $_POST["huisnummer"];
 	$postcode = $_POST["postcode"];
@@ -29,6 +31,7 @@ if (isset($_POST['submit'])) {
 	$telefoon = $_POST["telefoon"];
 	$bsn = $_POST["bsn"];
 	$doc_nummer = $_POST["doc_nummer"];
+	print($geb_datum);
 
 	// reset SESSION values
 	$_SESSION = array();
@@ -89,38 +92,44 @@ if (isset($_POST['submit'])) {
 			$stmt->execute(array('email' => $email, 'voornaam' => $voornaam, 'achternaam' => $achternaam));
 			$persoon_id = $stmt->fetch(PDO::FETCH_COLUMN, 0);
 			$treinkoerier_id = makeTreinkoerierId($pdo);
+
+			$geb_datum = strptime($geb_datum, '%Y-%m-%d %H:%M:%M');
+
+
+
 			$stmt = $pdo->prepare("INSERT INTO treinkoerier
 				(persoon_id, treinkoerier_id, email, password, salt, actief, geslacht, gebdatum, straat, huisnr, postcode, plaats, telefoon, bsn, documentnr)
 				VALUES
 				(:persoon_id, :treinkoerier_id, :email, :password, :salt, :actief, :geslacht, :gebdatum, :straat, :huisnummer, :postcode, :plaats, :telefoon, :bsn, :documentnr);");
 
-			if ($stmt->execute(array('persoon_id' => $persoon_id, 'treinkoerier_id' => $treinkoerier_id, 'email' => $email, 'password' => $hash, 'salt' => $salt, 'actief' => 0, 'geslacht' => $geslacht, 'gebdatum' => $geb_datum, 'straat' => $straat, 'huisnummer' => $huisnummer, 'postcode' => $postcode, 'plaats' => $plaats, 'telefoon' => $telefoon, 'bsn' => $bsn, 'documentnr' => $doc_nummer))) {
+			if ($stmt->execute(array('persoon_id' => $persoon_id, 'treinkoerier_id' => $treinkoerier_id, 'email' => $email, 'password' => $hash, 'salt' => $salt, 'actief' => 0, 'geslacht' => $geslacht, 'gebdatum' => $geb_datum, 'straat' => $straat, 'huisnummer' => $huisnummer, 'postcode' => $postcode, 'plaats' => $plaats, 'telefoon' => $telefoon, 'bsn' => $bsn, 'documentnr' => $doc_nummer)) === true) {
 				$_SESSION = array();
 				$_SESSION["register-confirm"] = true;
 				$insertError = false;
 			} else {
+				echo "Foutmelding: ";
 				print_r($pdo->errorInfo());
 				$_SESSION["register-confirm"] = false;
 				$insertError = true;
 			}
 		}
 
-		header("location: /treinkoeriers");
+		//header("location: /treinkoeriers");
 		exit();
 
 
 	} else {
 
 		// if there is a validation error redirect the user back to the registration page and show the error messages.
-		header("location: /treinkoeriers#aanmelden");
-		exit();
+		//header("location: /treinkoeriers#aanmelden");
+		//exit();
 
 	}
 
 } else {
 	// if for some reason a user came here
-	header("location: /home");
-	exit();
+	//header("location: /home");
+	//exit();
 }
 
 ?>

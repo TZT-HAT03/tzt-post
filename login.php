@@ -58,6 +58,9 @@ $page_name = "login";
 									<label for="wachtwoord">Wachtwoord</label>
 								</div>
 								<div class="input-field col s12">
+									<div class="g-recaptcha" data-sitekey="6Lcp9SATAAAAALk-g_f2lQOTnksbck7iYXPo0zIE"></div>
+								</div>
+								<div class="input-field col s12">
 									<button type="submit" name="submit" class="btn primary waves-effect waves-light" value="Inloggen">Log in</button>
 								</div>
 								<div class="input-field col s12">

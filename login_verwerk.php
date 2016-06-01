@@ -8,6 +8,12 @@ include "includes/functions.php";
 // is the form submitted?
 if (isset($_POST['submit'])) {
 
+	if (!isset($_POST["g-recaptcha-response"]) || $_POST["g-recaptcha-response"] == false) {
+		$_SESSION['errorMessage'] = "reCapctha niet ingevuld.";
+		header('Location: /login');
+		exit();
+	}
+
 	// input fields in variables
 	$email = strtolower($_POST['email']);
 	$password = $_POST['password'];

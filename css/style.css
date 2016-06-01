@@ -142,6 +142,43 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 	background-color: rgba(0,0,0,0.4);
 }
 
+.videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#loading-indicator {
+	min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #EEE;
+}
+
+#loading-indicator .center-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 70px;
+	margin-top: -35px;
+	width: 64px;
+	margin-left: -32px;
+}
+
 .card .card-action a {
 	color: #EE7B08 !important;
 }
@@ -205,7 +242,6 @@ nav li .btn {
 
 /* FULL PAGE */
 body {
-	background-color: #EEE;
     display: flex;
     min-height: 100vh;
     flex-direction: column;

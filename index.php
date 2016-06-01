@@ -10,6 +10,7 @@ include "includes/head.php";
 
 // pageinfo
 $page_name = "home";
+
 ?>
 
 <body>
@@ -79,6 +80,15 @@ include "includes/header.php"; ?>
 						<p class="light center">Het pakketje wordt <strong>binnen 6 uur</strong> bij het bezorgadres afgeleverd!</p>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<h3 class="header">Bekijk hier de korte video!</h3>
+			<div class="videowrapper">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/kjyDt2wG7tw" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>

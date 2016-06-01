@@ -1,0 +1,47 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+# Navigatie-balk pagina's
+
+	# Home
+	RewriteRule ^$ index.php [QSA,L]
+	RewriteRule ^home$ index.php [QSA,L]
+	RewriteRule ^home/$ index.php [QSA,L]
+
+	# Verzenden
+	RewriteRule ^verzenden$  verzenden.php [QSA,L]
+	RewriteRule ^verzenden/$ verzenden.php [QSA,L]
+
+		# Betalen
+		RewriteRule ^betalen$  betalen.php [QSA,L]
+		RewriteRule ^betalen/$ betalen.php [QSA,L]
+
+	# Ontvangen
+	RewriteRule ^track-trace$  ontvangen.php [QSA,L]
+	RewriteRule ^track-trace/$ ontvangen.php [QSA,L]
+
+	# Treinkoeriers
+	RewriteRule ^treinkoeriers$  treinkoeriers.php [QSA,L]
+	RewriteRule ^treinkoeriers/$ treinkoeriers.php [QSA,L]
+
+	# Contact
+	RewriteRule ^contact$  contact.php [QSA,L]
+	RewriteRule ^contact/$ contact.php [QSA,L]
+
+
+# Treinkoerier-zaken
+
+	# Profiel
+	RewriteRule ^pakket-panel$  pakket-panel.php
+	RewriteRule ^pakket-panel/$ pakket-panel.php
+
+	# Login
+	RewriteRule ^login$  login.php [QSA,L]
+	RewriteRule ^login/$ login.php [QSA,L]
+
+	# Uitloggen
+	RewriteRule ^uitloggen$  uitloggen.php [QSA,L]
+	RewriteRule ^uitloggen/$ uitloggen.php [QSA,L]
